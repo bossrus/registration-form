@@ -1,0 +1,16 @@
+$btn-color: #497ADA;
+
+.btn {
+  width: 100%;
+  height: 2.5em;
+  background: $btn-color;
+  border: none;
+  border-radius: .7em;
+  color: white;
+
+  &:disabled {
+    color: $btn-color;
+    background: rgba($btn-color, 0.2);
+
+  }
+}

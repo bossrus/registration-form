@@ -1,0 +1,119 @@
+<div v-if="!formSubmitted" class="main_form">
+    <div class="header text-bold">
+        Регистрация
+    </div>
+
+    <div class="main">
+        <div class="fields">
+            <div class="row">
+                Заполните Ваши данные
+            </div>
+            <div class="col2">
+                <div class="col">
+                    <input v-model="inputNameModel" :class="{'error': errors['name']}" class="input-txt"
+                           placeholder="Имя" type="text">
+                    <div>
+                    </div>
+                    <div class="password-group">
+                        <input v-model="inputPasswordModel"
+                               :class="{'error': errors['password'] || errors['passwords']}"
+                               :type="showPassword ? 'text' : 'password'" class="input-txt"
+                               placeholder="Пароль">
+                        <img v-if="showPassword" alt="showPassword" class="show-password"
+                             src="@/assets/eye-show.png" @click="togglePasswordDisplay('password')"/>
+                        <img v-else alt="showPassword" class="show-password"
+                             src="@/assets/eye-hide.png" @click="togglePasswordDisplay('password')"/>
+                    </div>
+                </div>
+                <div class="col">
+                    <input v-model="inputEmailModel" :class="{'error': errors['email']}" class="input-txt"
+                           placeholder="Email" type="text">
+                    <select v-model="inputTitleModel" :class="{'error': errors['title']}" class="select-txt">
+                        <option v-for="item in titles" :key="item.value" :value="item.value">
+                            {{ item.name }}
+                        </option>
+                    </select>
+
+                    <div class="password-group">
+                        <input v-model="inputPasswordConfirmModel"
+                               :class="{'error': errors['confirm'] || errors['passwords']}"
+                               :type="showConfirmPassword ? 'text' : 'password'"
+                               class="input-txt"
+                               placeholder="Повторите пароль">
+                        <img v-if="showConfirmPassword" alt="showPassword" class="show-password"
+                             src="@/assets/eye-show.png" @click="togglePasswordDisplay('confirm')"/>
+                        <img v-else alt="showPassword" class="show-password"
+                             src="@/assets/eye-hide.png" @click="togglePasswordDisplay('confirm')"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="send">
+            <div class="col3">
+
+                <div class="simple-col">
+                    <label class="switch">
+                        <input v-model="inputPublicModel" class="input-switch"
+                               type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <div></div>
+                    <div>
+                        <input id="cb" v-model="inputPoliticsModel" class="custom-checkbox" name="cb" type="checkbox">
+                        <label for="cb"></label>
+                    </div>
+                </div>
+
+                <div class="simple-col">
+                    <div class="text-bold">
+                        Хотите, чтобы Ваш профиль видели другие участники платформы?
+                    </div>
+                    <div>
+                        <span class="small-text gray-text">
+                            Включает профиль для просмотра другими пользователями по ссылке
+                        </span>
+                    </div>
+                    <div>
+                        <span class="small-text">
+                             Регистрируясь, Вы соглашаетесь с
+                            <a href="#">
+                                политикой конфиденциальности
+                            </a>
+                            и обработкой
+                            <a href="#">
+                                персональных данных
+                            </a>
+                        </span>
+
+                    </div>
+                </div>
+
+                <div class="simple-col">
+                    <div>
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                        <button :disabled="cantSubmit" class="btn" @click="sendData">
+                            <span class="small-text">
+                                Зарегистрироваться
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer error-messages">
+        <p v-for="(error, index) in errorsList" :key="index">{{ error }}
+        </p>
+    </div>
+
+</div>
+<div v-else class="send_form">
+    <h1>
+        Регистрация успешно завершена
+    </h1>
+</div>

@@ -1,0 +1,18 @@
+.input-txt {
+  border-radius: 1em;
+  border: #E6E6EB 1px solid;
+  padding: 1em 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.show-password {
+  position: absolute;
+  top: 1.15em;
+  right: 1em;
+  cursor: pointer;
+}
+
+.password-group {
+  position: relative;
+}

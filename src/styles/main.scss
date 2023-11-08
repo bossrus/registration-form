@@ -1,0 +1,128 @@
+@import "./switch";
+@import "./input";
+@import "./checkbox";
+@import "./button";
+@import "./select";
+
+
+$border: #D9D9D9 1px solid;
+
+.main_form {
+  width: 960px;
+  display: grid;
+  grid-template-rows: 4em auto auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  height: 3em;
+}
+
+.col2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1.5em;
+}
+
+.col3 {
+  display: grid;
+  grid-template-columns: 2em auto 24em;
+  gap: .5em;
+}
+
+.col {
+  box-sizing: border-box;
+  display: grid;
+  $row-height: 2.5em;
+  grid-template-rows: $row-height $row-height $row-height;
+  gap: 1.5em;
+}
+
+.simple-col {
+  display: grid;
+  $row-height: 1em;
+  grid-template-rows: $row-height $row-height+1 $row-height;
+  gap: 1em;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding-left: 1.1em;
+  font-size: 1.4em;
+  border-bottom: $border;
+}
+
+.fields {
+  padding-left: 1.5em;
+  padding-right: 1.1em;
+  padding-bottom: 2em;
+  border-bottom: $border;
+  box-sizing: border-box;
+}
+
+.send {
+  padding: 1em 1.1em 2em 1.5em;
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.small-text {
+  font-size: 13px !important;
+}
+
+.gray-text {
+  color: #696977;
+}
+
+.error-messages {
+  font-size: small;
+  color: red;
+}
+
+.footer {
+  padding: 2em;
+}
+
+.error {
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.black-text {
+  color: black;
+}
+
+.send_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 960px;
+  height: 500px;
+  background: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    margin: 0;
+  }
+}
+

@@ -1,0 +1,69 @@
+$switch-height: 1em;
+$switch-color: #3586FF;
+
+
+.switch {
+  position: relative;
+  top: 0.2em;
+  height: $switch-height;
+  display: flex;
+  align-items: center;
+
+}
+
+.switch .input-switch {
+  display: none;
+}
+
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($switch-color, 0.2);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: $switch-height;
+  width: $switch-height;
+  left: 0;
+  bottom: -1px;
+  background-color: white;
+  transition: 0.4s;
+  border: rgba($switch-color, 0.2) 1px solid;
+}
+
+.input-switch:checked + .slider:before {
+  border-color: $switch-color;
+}
+
+.input-switch:checked + .slider {
+  background-color: $switch-color;
+}
+
+.input-switch:focus + .slider {
+  box-shadow: 0 0 1px $switch-color;
+}
+
+.input-switch:checked + .slider:before {
+  -ms-transform: translateX($switch-height);
+  transform: translateX($switch-height);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 1em;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
